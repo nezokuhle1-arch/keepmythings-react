@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NoteCard from './components/NoteCard';
+import CreateNoteForm from './components/CreateNoteForm';
 
 function App() {
   const [notes, setNotes] = useState([
@@ -19,9 +20,23 @@ function App() {
 
   ]);
 
+  // This function adds a new note to the notes state
+  function handleAddNote(text) {
+    const newNote = {
+      id: Date.now(),
+      title: '',
+      content: text,
+      pinned: false,
+      archived: false
+    };
+    // This adds the new note to the notes state
+    setNotes([...notes, newNote]);
+  }
+
   return (
     <div>
       <h1>Keep Notes</h1>
+      <CreateNoteForm onAddNote={handleAddNote} /> 
       {notes.map((note) => (
         <NoteCard key={note.id} note={note} /> // The NoteCard component is imported from NoteCard.jsx and is used to display the note.
       ))}
