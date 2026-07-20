@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import NoteCard from './components/NoteCard';
 
 function App() {
   const [notes, setNotes] = useState([
@@ -22,7 +23,7 @@ function App() {
     <div>
       <h1>Keep Notes</h1>
       {notes.map((note) => (
-        <p key={note.id}>{note.title}</p>
+        <NoteCard key={note.id} note={note} /> // The NoteCard component is imported from NoteCard.jsx and is used to display the note.
       ))}
     </div>
   );
