@@ -47,10 +47,12 @@ function App() {
     setNotes([...notes, newNote]);
   }
 
+  // This function deletes a note
   function handleDeleteNote (id) {
     setNotes (notes.filter((note) => note.id !== id));
   }
 
+  // This function toggles the pinned state of a note
   function handleTogglePin(id) {
     setNotes(
       notes.map((note) =>
@@ -59,6 +61,7 @@ function App() {
     );
   }
 
+  // This function sorts the notes by pinned state
   const sortedNotes = [...notes].sort((a, b) => b.pinned - a.pinned);
   
   return (
