@@ -33,12 +33,18 @@ function App() {
     setNotes([...notes, newNote]);
   }
 
+  function handleDeleteNote (id) {
+    setNotes (notes.filter((note) => note.id !== id));
+  }
+
+
+
   return (
     <div>
       <h1>Keep Notes</h1>
       <CreateNoteForm onAddNote={handleAddNote} /> 
       {notes.map((note) => (
-        <NoteCard key={note.id} note={note} /> // The NoteCard component is imported from NoteCard.jsx and is used to display the note.
+        <NoteCard key={note.id} note={note} onDeleteNote={handleDeleteNote} /> // The NoteCard component is imported from NoteCard.jsx and is used to display the note.
       ))}
     </div>
   );
