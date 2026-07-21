@@ -22,26 +22,29 @@ function App() {
       title: 'Test note', 
       content: 'If you can see this, state is working.',
       pinned: false,
-      archived: false
+      archived: false,
+      reminderDate: null
     },
 
     { id: 2, 
       title: 'Second note', 
       content: 'Loop test.', 
       pinned: false, 
-      archived: false 
+      archived: false,
+      reminderDate: null
     }
 
   ]);
 
   // This function adds a new note to the notes state
-  function handleAddNote(text) {
+  function handleAddNote(text, reminderDate) {
     const newNote = {
       id: Date.now(),
       title: '',
       content: text,
       pinned: false,
-      archived: false
+      archived: false,
+      reminderDate: reminderDate
     };
     // This adds the new note to the notes state
     setNotes([...notes, newNote]);

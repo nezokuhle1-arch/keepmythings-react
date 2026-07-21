@@ -5,6 +5,8 @@ html[data-theme="dark"] {
   --text-color: #e8eaed;
   --surface-color: #303134;
   --border-color: #444;
+  --overdue-background: #5f2120;
+  --overdue-text: #f28b82;
 }
 
 html[data-theme="light"] {
@@ -12,6 +14,8 @@ html[data-theme="light"] {
   --text-color: #202124;
   --surface-color: #f1f3f4;
   --border-color: #dadce0;
+  --overdue-background: #fce8e6;
+  --overdue-text: #b3261e;
 }
 
 * {
@@ -97,6 +101,21 @@ form input {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 16px;
+}
+
+.reminder {
+  display: block;
+  width: fit-content;
+  margin: 12px 0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  font-size: 14px;
+}
+
+.reminder.overdue {
+  background-color: var(--overdue-background);
+  color: var(--overdue-text);
 }
 
 @media (max-width: 600px) {
