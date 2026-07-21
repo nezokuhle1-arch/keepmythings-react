@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import NoteCard from './components/NoteCard';
 import CreateNoteForm from './components/CreateNoteForm';
+import Navbar from './components/Navbar';
 
 function App() {
   const [notes, setNotes] = useState([
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div>
+      <Navbar />
       <h1>Keep Notes</h1>
       <CreateNoteForm onAddNote={handleAddNote} /> 
       {notes.map((note) => (
