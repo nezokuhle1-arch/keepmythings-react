@@ -77,6 +77,8 @@ nav h1 {
   cursor: pointer;
 }
 
+/* Form Styling */
+
 form {
   max-width: 600px;
   margin: 24px auto;
