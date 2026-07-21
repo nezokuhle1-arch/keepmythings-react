@@ -38,15 +38,23 @@ function App() {
     setNotes (notes.filter((note) => note.id !== id));
   }
 
+  function handleTogglePin(id) {
+    setNotes(
+      notes.map((note) =>
+        note.id === id ? { ...note, pinned: !note.pinned } : note
+      )
+    );
+  }
 
-
+  const sortedNotes = [...notes].sort((a, b) => b.pinned - a.pinned);
+  
   return (
     <div>
       <Navbar />
       <CreateNoteForm onAddNote={handleAddNote} /> 
       <div className="notes-grid">
-      {notes.map((note) => (
-        <NoteCard key={note.id} note={note} onDeleteNote={handleDeleteNote} /> // The NoteCard component is imported from NoteCard.jsx and is used to display the note.
+      {sortedNotes.map((note) => (
+        <NoteCard key={note.id} note={note} onDeleteNote={handleDeleteNote} onTogglePin={handleTogglePin}/> // The NoteCard component is imported from NoteCard.jsx and is used to display the note.
       ))}
       </div>
     </div>
