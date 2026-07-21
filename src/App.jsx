@@ -45,9 +45,11 @@ function App() {
       <Navbar />
       <h1>Keep Notes</h1>
       <CreateNoteForm onAddNote={handleAddNote} /> 
+      <div className="notes-grid">
       {notes.map((note) => (
         <NoteCard key={note.id} note={note} onDeleteNote={handleDeleteNote} /> // The NoteCard component is imported from NoteCard.jsx and is used to display the note.
       ))}
+      </div>
     </div>
   );
 }
