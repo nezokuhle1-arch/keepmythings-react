@@ -20,7 +20,9 @@ function CreateNoteForm({ onAddNote }) {
         onChange={(e) => setReminderDate(e.target.value)}
         aria-label="Reminder date and time"
       />
-      <button type="submit">Add note</button>
+      <button type="submit" aria-label="Add note">
+        <span className="material-symbols-outlined">add_notes</span>
+      </button>
     </form>
   );
 }

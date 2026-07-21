@@ -93,7 +93,7 @@ form input {
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
   padding: 16px 24px;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -139,6 +139,20 @@ form input {
   opacity: 1;
   background: rgba(255, 255, 255, 0.08);
 }
+
+.notes-grid button,
+form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notes-grid button .material-symbols-outlined,
+form button .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* Reminder Styling */
 
 .reminder {
   display: block;

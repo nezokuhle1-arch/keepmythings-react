@@ -12,8 +12,12 @@ function NoteCard({ note, onDeleteNote, onTogglePin }) {
                     {new Date(note.reminderDate).toLocaleString()}
                 </span>
             )}
-            <button onClick={() => onDeleteNote(note.id)}>Delete</button>
-            <button onClick={() => onTogglePin(note.id)}>{note.pinned ? 'Unpin' : 'Pin'}</button>
+            <button onClick={() => onDeleteNote(note.id)} aria-label="Delete note">
+                <span className="material-symbols-outlined">delete</span>
+            </button>
+            <button onClick={() => onTogglePin(note.id)} aria-label={note.pinned ? 'Unpin note' : 'Pin note'}>
+                <span className="material-symbols-outlined">keep</span>
+            </button>
         </div>
     );
 }
