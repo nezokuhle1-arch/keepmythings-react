@@ -43,7 +43,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <h1>Keep Notes</h1>
       <CreateNoteForm onAddNote={handleAddNote} /> 
       <div className="notes-grid">
       {notes.map((note) => (

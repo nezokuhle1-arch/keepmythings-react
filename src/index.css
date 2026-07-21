@@ -12,6 +12,10 @@ body {
   color: #e8eaed;
 }
 
+.logo {
+  height: 40px;
+}
+
 /* Navbar Styling */
 
 nav {
