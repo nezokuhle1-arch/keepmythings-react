@@ -1,9 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NoteCard from './components/NoteCard';
 import CreateNoteForm from './components/CreateNoteForm';
 import Navbar from './components/Navbar';
 
 function App() {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem('theme') || 'dark'
+  );
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  function handleToggleTheme() {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }
+
   const [notes, setNotes] = useState([
     { id: 1, 
       title: 'Test note', 
@@ -50,7 +63,7 @@ function App() {
   
   return (
     <div>
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={handleToggleTheme} />
       <CreateNoteForm onAddNote={handleAddNote} /> 
       <div className="notes-grid">
       {sortedNotes.map((note) => (
